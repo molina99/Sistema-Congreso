@@ -1,0 +1,44 @@
+<body>
+  <div class="form">
+    <img src="../../assets/img/logo-yavirac.png" class="avatar">
+    <h2>Inscripción Ponente</h2>
+    <form [formGroup]="editarForm">
+      <div class="contenedor">
+        <div *ngFor="let item of respuesta">
+          <p>Nombres</p>
+          <input formControlName="nombres" type="text" name="nombres" id="nombres" [(ngModel)]="item.nombres">
+          <p>Apellidos</p>
+          <input formControlName="apellidos" type="text" name="apellidos" id="apellidos" [(ngModel)]="item.apellidos">
+          <p>Correo Electrónico</p>
+          <input formControlName="email" type="email" name="email" id="email" [(ngModel)]="item.email">
+          <p>Categoría</p>
+          <div class="caja">
+            <select formControlName="categoria" name="categoria" id="categoria" [(ngModel)]="item.categoria">
+              <option value="" disabled>Seleccione...</option>
+              <option value="">Tecnologico</option>
+              <option value="">Cientifico</option>
+              <option value="">Social</option>
+              <option value="">Economico</option>
+            </select>
+          </div>
+          <p>Tema</p>
+          <input formControlName="tema" type="text" name="tema" id="tema" placeholder="Ingrese el tema"
+            [(ngModel)]="item.tema">
+          <p>Resumen</p>
+          <textarea formControlName="resumen" name="resumen" id="resumen" cols="64" rows="3"
+            [(ngModel)]="item.resumen"></textarea>
+          <p>Institución</p>
+          <input formControlName="institucion" type="text" name="institucion" id="institucion"
+            [(ngModel)]="item.institucion">
+          <p>Fecha</p>
+          <input formControlName="fecha" type="text" name="fecha" id="fecha" placeholder="Ingrese La Fecha"
+            [(ngModel)]="item.fecha">
+          <p>Hora</p>
+          <input formControlName="hora" type="time" name="hora" id="hora" placeholder="Ingrese la Hora"
+            [(ngModel)]="item.hora">
+          <input type="submit" value="Enviar" (click)="editData(item.id)">
+        </div>
+      </div>
+    </form>
+  </div>
+</body>

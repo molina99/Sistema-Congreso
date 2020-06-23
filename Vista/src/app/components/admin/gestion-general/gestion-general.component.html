@@ -1,0 +1,118 @@
+<body>
+  <h1>REGISTROS</h1>
+  <div class="container">
+    <div class="forms">
+      <div class="div">
+        <h2>Ponentes</h2>
+        <table>
+          <thead *ngFor="let item of table_ponentes">
+            <th>{{item.id}}</th>
+            <th>{{item.nombres}}</th>
+            <th>{{item.apellidos}}</th>
+            <th>{{item.email}}</th>
+            <th>{{item.tema}}</th>
+            <th>{{item.resumen}}</th>
+            <th>{{item.institucion}}</th>
+            <th>{{item.fecha}}</th>
+            <th>{{item.hora}}</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of respuesta_ponentes">
+              <td>{{item.id}}</td>
+              <td>{{item.nombres}}</td>
+              <td>{{item.apellidos}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.tema}}</td>
+              <td>{{item.resumen}}</td>
+              <td>{{item.institucion}}</td>
+              <td>{{item.fecha}}</td>
+              <td>{{item.hora}}</td>
+              <td>
+                <button value="Editar" title="Actualizar" class="btn green" (click)="editarPonente(item.id)">Agregar
+                  Fecha y Hora</button>
+              </td>
+              <td>
+                <button value="Editar" title="Actualizar" class="btn" (click)="editarPonente(item.id)">Editar</button>
+              </td>
+              <td>
+                <button value="Eliminar" title="Eliminar" class="btn red"
+                  (click)="borrarPonente(item.id)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="div">
+        <h2>Asistentes</h2>
+        <table>
+          <thead *ngFor="let item of table_asistentes">
+            <th>{{item.nombres}}</th>
+            <th>{{item.apellidos}}</th>
+            <th>{{item.email}}</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of respuesta_asistentes">
+              <td>{{item.nombres}}</td>
+              <td>{{item.apellidos}}</td>
+              <td>{{item.email}}</td>
+              <td>
+                <button value="Editar" title="Actualizar" class="btn" (click)="editarAsistente(item.id)">Editar</button>
+              </td>
+              <td>
+                <button value="Eliminar" title="Eliminar" class="btn red"
+                  (click)="borrarAsistente(item.id)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <button class="btn align" type="button" (click)="crearPDF()">Generar PDF</button>
+
+  <div class="gestion-text">
+    <h1>Gestión de Congreso</h1>
+    <form action="">
+      <h2>******INICIO******</h2>
+      <label for="">Código</label><br>
+      <input type="number" [(ngModel)]="gestion.id" name="id" id="id"><br>
+      <label for="">Título Congreso</label><br>
+      <textarea [(ngModel)]="gestion.tituloCongreso" name="tituloCongreso" id="tituloCongreso" cols="50"
+        rows="3"></textarea><br>
+      <label for="">Dirección Correo</label><br>
+      <textarea [(ngModel)]="gestion.direccionCorreo" name="direccionCorreo" id="direccionCorreo" cols="50"
+        rows="3"></textarea><br>
+      <label for="">Pagina Web</label><br>
+      <textarea [(ngModel)]="gestion.paginaWeb" name="paginaWeb" id="paginaWeb" cols="50" rows="3"></textarea><br>
+      <h2>******INFORMACIÓN*******</h2><br>
+      <textarea [(ngModel)]="gestion.informacion" name="informacion" id="informacion" cols="50" rows="3"></textarea><br>
+      <h2>******CRONOGRAMA********</h2><br>
+      <label for="">Título</label><br>
+      <textarea [(ngModel)]="gestion.tituloCronograma" name="tituloCronograma" id="tituloCronograma" cols="50"
+        rows="3"></textarea><br>
+      <h2>******CONTÁCTANOS*******</h2><br>
+      <label for="">Teléfono</label><br>
+      <textarea [(ngModel)]="gestion.telefono" name="telefono" id="telefono" cols="50" rows="3"></textarea><br>
+      <label for="">Correo 1</label><br>
+      <textarea [(ngModel)]="gestion.correoUno" name="correoUno" id="correoUno" cols="50" rows="3"></textarea><br>
+      <label for="">Correo 2</label><br>
+      <textarea [(ngModel)]="gestion.correoDos" name="correoDos" id="correoDos" cols="50" rows="3"></textarea><br>
+      <input type="submit" value="Enviar" (click)="postDataGestion(gestion.id)">
+    </form>
+  </div>
+
+  <div class="gestion-imgs">
+    <h1>Gestión de Imagenes</h1>
+    <label>Código</label><br>
+    <input type="number" [(ngModel)]="imagen.id"><br>
+    <label>Imagen</label><br>
+    <input type="file" (change)="handleFileSelect($event)" [(ngModel)]="imagen" name="imagen"><br>
+    <button class="btn align" type="button" (click)="addImage(imagen.id)">Enviar</button>
+  </div>
+</body>
