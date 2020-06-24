@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { Ponentes } from 'src/app/models/ponentes';
-import { Asistentes } from 'src/app/models/asistentes';
-import { Gestion } from 'src/app/models/gestionParametros';
-import { DomSanitizer } from '@angular/platform-browser';
-import Swal from 'sweetalert2';
-import jsPDF from 'jspdf';
-import { Images } from 'src/app/models/images';
+import { Component, OnInit } from "@angular/core";
+import { environment } from "src/environments/environment";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Router } from "@angular/router";
+import { Ponentes } from "src/app/models/ponentes";
+import { Asistentes } from "src/app/models/asistentes";
+import { Gestion } from "src/app/models/gestionParametros";
+import { DomSanitizer } from "@angular/platform-browser";
+import Swal from "sweetalert2";
+import jsPDF from "jspdf";
+import { Images } from "src/app/models/images";
 
 @Component({
-  selector: 'app-gestion-general',
-  templateUrl: './gestion-general.component.html',
-  styleUrls: ['./gestion-general.component.scss']
+  selector: "app-gestion-general",
+  templateUrl: "./gestion-general.component.html",
+  styleUrls: ["./gestion-general.component.scss"],
 })
 export class GestionGeneralComponent implements OnInit {
-
   base64textString: String = "";
 
   ponente: Ponentes;
@@ -36,22 +35,21 @@ export class GestionGeneralComponent implements OnInit {
   table_asistentes: any[];
   respuesta_asistentes: any[];
 
-
   /*======================== GESTION PARAMETROS =======================*/
 
-  dataGestion: any
+  dataGestion: any;
   gestion: Gestion;
   tablaGestion: string;
 
-
-  imagen: Images
+  imagen: Images;
 
   /*======================== FIN GESTION PARAMETROS =======================*/
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private _sanitizer: DomSanitizer) {
+    private _sanitizer: DomSanitizer
+  ) {
     // this.files = [];
   }
 
@@ -60,139 +58,145 @@ export class GestionGeneralComponent implements OnInit {
 
     this.table_ponentes = [
       {
-        id: 'Id',
-        nombres: 'Nombres',
-        apellidos: 'Apellidos',
-        email: 'Email',
-        categoria: 'Categoria',
-        tema: 'Tema',
-        resumen: 'Resumen',
-        institucion: 'Institución',
-        fecha: 'Fecha',
-        hora: 'Hora'
-      }]
+        id: "Id",
+        nombres: "Nombres",
+        apellidos: "Apellidos",
+        email: "Email",
+        categoria: "Categoria",
+        tema: "Tema",
+        resumen: "Resumen",
+        institucion: "Institución",
+        fecha: "Fecha",
+        hora: "Hora",
+      },
+    ];
 
     this.table_asistentes = [
       {
-        id: 'Id',
-        nombres: 'Nombres',
-        apellidos: 'Apellidos',
-        email: 'Email'
-      }]
+        id: "Id",
+        nombres: "Nombres",
+        apellidos: "Apellidos",
+        email: "Email",
+      },
+    ];
 
-    this.tablaPonentes = 'ponentes';
+    this.tablaPonentes = "ponentes";
 
-    this.tablaAsistentes = 'asistentes'
+    this.tablaAsistentes = "asistentes";
 
     this.deletePonentes = {
       tabla: this.tablaPonentes,
-      id: this.datoEliminar
+      id: this.datoEliminar,
     };
 
     this.deleteAsistentes = {
       tabla: this.tablaAsistentes,
-      id: this.datoEliminar
+      id: this.datoEliminar,
     };
-
 
     /*======================== GESTION PARAMETROS =======================*/
 
     this.gestion = {
       id: 0,
-      tituloCongreso: '',
-      direccionCorreo: '',
-      paginaWeb: '',
-      informacion: '',
-      tituloCronograma: '',
-      telefono: '',
-      correoUno: '',
-      correoDos: '',
+      tituloCongreso: "",
+      direccionCorreo: "",
+      paginaWeb: "",
+      informacion: "",
+      tituloCronograma: "",
+      telefono: "",
+      correoUno: "",
+      correoDos: "",
     };
 
-    this.tablaGestion = 'gestion';
+    this.tablaGestion = "gestion";
 
     /*======================== FIN GESTION PARAMETROS =======================*/
 
     this.imagen = {
-      id: 0
+      id: 0,
     };
-
   }
 
   getData = () => {
-    const tablaPonente = 'ponentes';
-    const tablaAsistente = 'asistentes';
+    const tablaPonente = "ponentes";
+    const tablaAsistente = "asistentes";
 
-    this.http.get<any>(environment.API_URL + `get?tabla=${tablaPonente}`).subscribe(data => {
-      this.respuesta_ponentes = data.datos;
-      console.log(this.respuesta_ponentes);
-    });
+    this.http
+      .get<any>(environment.API_URL + `get?tabla=${tablaPonente}`)
+      .subscribe((data) => {
+        this.respuesta_ponentes = data.datos;
+        console.log(this.respuesta_ponentes);
+      });
 
-    this.http.get<any>(environment.API_URL + `get?tabla=${tablaAsistente}`).subscribe(data => {
-      this.respuesta_asistentes = data.datos;
-      console.log(this.respuesta_asistentes);
-    });
-  }
-
+    this.http
+      .get<any>(environment.API_URL + `get?tabla=${tablaAsistente}`)
+      .subscribe((data) => {
+        this.respuesta_asistentes = data.datos;
+        console.log(this.respuesta_asistentes);
+      });
+  };
 
   editarPonente = (id: any) => {
     this.data = {
       tabla: this.tablaPonentes,
-      idPonente: id
+      idPonente: id,
     };
     console.log(this.data);
-    localStorage.removeItem('id');
-    localStorage.setItem('id', this.data.idPonente.toString());
-    this.router.navigate(['editar-ponente']);
-  }
+    localStorage.removeItem("id");
+    localStorage.setItem("id", this.data.idPonente.toString());
+    this.router.navigate(["editar-ponente"]);
+  };
 
   editarAsistente = (id: any) => {
     this.data = {
       tabla: this.tablaAsistentes,
-      idAsistente: id
+      idAsistente: id,
     };
     console.log(this.data);
-    localStorage.removeItem('id');
-    localStorage.setItem('id', this.data.idAsistente.toString());
-    this.router.navigate(['editar-asistente']);
-  }
+    localStorage.removeItem("id");
+    localStorage.setItem("id", this.data.idAsistente.toString());
+    this.router.navigate(["editar-asistente"]);
+  };
 
   borrarPonente = (id: number) => {
     console.log(id);
     this.data = {
       tabla: this.tablaPonentes,
-      datoId: id
+      datoId: id,
     };
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-type': 'aplication/json' })
+      headers: new HttpHeaders({ "Content-type": "aplication/json" }),
     };
     console.log(this.data);
     if (this.data !== undefined) {
-      this.http.post(environment.API_URL + 'delete', this.data).subscribe(resultado => {
-        console.log(resultado);
-        window.location.reload()
-      });
+      this.http
+        .post(environment.API_URL + "delete", this.data)
+        .subscribe((resultado) => {
+          console.log(resultado);
+          window.location.reload();
+        });
     }
-
-  }
+  };
 
   borrarAsistente = (id: number) => {
     console.log(id);
     this.data = {
       tabla: this.tablaAsistentes,
-      datoId: id
+      datoId: id,
     };
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-type': 'aplication/json' })
+      headers: new HttpHeaders({ "Content-type": "aplication/json" }),
     };
     console.log(this.data);
     if (this.data !== undefined) {
-      this.http.post(environment.API_URL + 'delete', this.data).subscribe(resultado => {
-        console.log(resultado);
-        window.location.reload()
-      });
+      this.http
+        .post(environment.API_URL + "delete", this.data)
+        .subscribe((resultado) => {
+          console.log(resultado);
+          window.location.reload();
+        });
     }
-  }
+  };
 
   handleFileSelect(evt) {
     var files = evt.target.files;
@@ -204,7 +208,6 @@ export class GestionGeneralComponent implements OnInit {
       reader.onload = this._handleReaderLoaded.bind(this);
 
       reader.readAsBinaryString(file);
-
     }
   }
   _handleReaderLoaded(readerEvt) {
@@ -214,59 +217,56 @@ export class GestionGeneralComponent implements OnInit {
 
   addImage = (id: number) => {
     console.log(id);
-    const tabla = 'images';
-    const data = {tabla: tabla, datos: [{id: this.imagen.id, nombre: this.base64textString
-      }]
+    const tabla = "images";
+    const data = {
+      tabla: tabla,
+      datos: [{ id: this.imagen.id, nombre: this.base64textString }],
     };
-    this.http.post(environment.API_URL + 'post', data).subscribe(resultado => {
-      console.log(resultado);
-      this.router.navigate(['gestion']);
-    });
-  }
+    this.http
+      .post(environment.API_URL + "post", data)
+      .subscribe((resultado) => {
+        console.log(resultado);
+        this.router.navigate(["gestion"]);
+      });
+  };
 
   crearPDF() {
     const doc = new jsPDF({
-      orientation: 'L',
-      unit: 'mm',
-      format: 'a2',
+      orientation: "L",
+      unit: "mm",
+      format: "a2",
       putOnlyUsedFonts: true,
-      compress: true
+      compress: true,
     });
 
     var elementHandler = {
-      '#ignorePDF': function (element, renderer) {
+      "#ignorePDF": function (element, renderer) {
         return true;
-      }
+      },
     };
     var source = window.document.getElementsByTagName("body")[0];
-    doc.fromHTML(
-      source,
-      15,
-      15,
-      {
-        'width': 180, 'elementHandlers': elementHandler
-      });
+    doc.fromHTML(source, 15, 15, {
+      width: 180,
+      elementHandlers: elementHandler,
+    });
 
     doc.output("dataurlnewwindow");
   }
 
-
   /*======================== GESTION PARAMETROS =======================*/
-
 
   postDataGestion = () => {
     this.dataGestion = {
       tabla: this.tablaGestion,
-      datos: this.gestion
+      datos: this.gestion,
     };
-    this.http.post(environment.API_URL + 'post', this.dataGestion).subscribe(resultado => {
-      console.log(resultado);
-      window.location.reload()
-    })
-  }
-
+    this.http
+      .post(environment.API_URL + "post", this.dataGestion)
+      .subscribe((resultado) => {
+        console.log(resultado);
+        window.location.reload();
+      });
+  };
 
   /*======================== FIN GESTION PARAMETROS =======================*/
-
 }
-

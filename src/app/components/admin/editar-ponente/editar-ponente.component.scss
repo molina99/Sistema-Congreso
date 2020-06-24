@@ -4,7 +4,7 @@ body {
 }
 
 body:before {
-  content: '';
+  content: "";
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -34,7 +34,7 @@ body:before {
     height: 144px;
     // border-radius: 50%;
     overflow: hidden;
-    top: calc(50px/2);
+    top: calc(50px / 2);
     left: 30%;
   }
 
@@ -58,9 +58,9 @@ body:before {
     margin-bottom: 20px;
   }
 
-  input[type=email],
-  input[type=password],
-  input[type=text] {
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -70,7 +70,7 @@ body:before {
     font-size: 15px;
   }
 
-  input[type=submit] {
+  input[type="submit"] {
     height: 30px;
     color: #fff;
     font-size: 15px;

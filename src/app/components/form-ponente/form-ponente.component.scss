@@ -4,7 +4,7 @@ body {
 }
 
 body:before {
-  content: '';
+  content: "";
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -41,14 +41,13 @@ body:before {
     width: 350px;
   }
 
-
   .avatar {
     position: absolute;
     width: 200px;
     height: 144px;
     // border-radius: 50%;
     overflow: hidden;
-    top: calc(50px/2);
+    top: calc(50px / 2);
     left: 38%;
   }
 
@@ -72,9 +71,9 @@ body:before {
     margin-bottom: 20px;
   }
 
-  input[type=email],
-  input[type=text],
-  input[type=number] {
+  input[type="email"],
+  input[type="text"],
+  input[type="number"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -84,7 +83,7 @@ body:before {
     font-size: 15px;
   }
 
-  input[type=submit] {
+  input[type="submit"] {
     height: 30px;
     color: #fff;
     font-size: 15px;
@@ -106,7 +105,7 @@ body:before {
     font-size: 17px;
   }
 
-  input[type=number]::-webkit-inner-spin-button {
+  input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     opacity: 1;
   }

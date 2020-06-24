@@ -4,7 +4,7 @@ body {
 }
 
 body:before {
-  content: '';
+  content: "";
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -59,7 +59,6 @@ h1 {
   }
 }
 
-
 .container {
   width: 100%;
   max-width: 1158px;
@@ -112,7 +111,7 @@ h1 {
   }
 }
 
-p{
+p {
   text-align: left;
   color: #000;
   margin: 20px 0px 0px 50px;

@@ -11,18 +11,18 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~7.1.0",
-    "@angular/common": "~7.1.0",
-    "@angular/compiler": "~7.1.0",
-    "@angular/core": "~7.1.0",
-    "@angular/forms": "~7.1.0",
-    "@angular/platform-browser": "~7.1.0",
-    "@angular/platform-browser-dynamic": "~7.1.0",
-    "@angular/router": "~7.1.0",
+    "@angular/animations": "~9.1.11",
+    "@angular/common": "~9.1.11",
+    "@angular/compiler": "~9.1.11",
+    "@angular/core": "~9.1.11",
+    "@angular/forms": "~9.1.11",
+    "@angular/platform-browser": "~9.1.11",
+    "@angular/platform-browser-dynamic": "~9.1.11",
+    "@angular/router": "~9.1.11",
     "core-js": "^2.5.4",
     "jspdf": "^1.5.3",
     "ngx-pagination": "^4.1.0",
-    "rxjs": "~6.3.3",
+    "rxjs": "~6.5.5",
     "sweetalert2": "^8.14.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -30,8 +30,8 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.9",
     "@angular/cli": "~9.1.9",
-    "@angular/compiler-cli": "~7.1.0",
-    "@angular/language-service": "~7.1.0",
+    "@angular/compiler-cli": "~9.1.11",
+    "@angular/language-service": "~9.1.11",
     "@types/jasmine": "^2.8.17",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^12.11.1",
@@ -46,6 +46,6 @@
     "protractor": "^5.4.4",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.8.3"
   }
 }

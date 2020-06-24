@@ -9,12 +9,13 @@ body {
 }
 
 body:before {
-  content: '';
+  content: "";
   position: fixed;
   width: 100vw;
   height: 100vh;
   // background-image: url("../../../assets/img/slider-2.jpg");
-  background: linear-gradient(#0000008f, #00000080), url('../../../assets/img/fondo-yavirac.jpg');
+  background: linear-gradient(#0000008f, #00000080),
+    url("../../../assets/img/fondo-yavirac.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -64,11 +65,10 @@ body:before {
       height: 45px;
     }
 
-    textarea{
+    textarea {
       border-radius: 12px;
       outline: none;
     }
-
 
     .submit {
       background-color: #316593;
@@ -88,7 +88,6 @@ body:before {
     }
   }
 }
-
 
 .contact {
   float: left;

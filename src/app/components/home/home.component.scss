@@ -3,14 +3,13 @@
   padding: 0;
 }
 
-
 body {
   margin: 0;
   padding: 0;
 }
 
 body:before {
-  content: '';
+  content: "";
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -32,7 +31,7 @@ img {
   left: 5%;
 }
 
-.tuerca{
+.tuerca {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -83,7 +82,7 @@ h1 {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url('../../../assets/img/fondo-yavirac.jpg');
+    background-image: url("../../../assets/img/fondo-yavirac.jpg");
     z-index: -1;
     -webkit-filter: blur(2px);
     -moz-filter: blur(2px);
@@ -99,11 +98,10 @@ h1 {
       -ms-animation: slider 20s linear infinite;
       -o-animation: slider 20s linear infinite;
       -webkit-animation: slider 20s linear infinite;
-
     }
 
     .img1 {
-      background-image: url('../../../assets/img/slider-2.jpg');
+      background-image: url("../../../assets/img/slider-2.jpg");
       animation-delay: 10s;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -111,7 +109,7 @@ h1 {
     }
 
     .img2 {
-      background-image: url('../../../assets/img/slider-3.jpg');
+      background-image: url("../../../assets/img/slider-3.jpg");
       animation-delay: 10s;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -119,7 +117,7 @@ h1 {
     }
 
     .img3 {
-      background-image: url('../../../assets/img/slider-4.jpg');
+      background-image: url("../../../assets/img/slider-4.jpg");
       animation-delay: 10s;
       background-repeat: no-repeat;
       background-attachment: fixed;

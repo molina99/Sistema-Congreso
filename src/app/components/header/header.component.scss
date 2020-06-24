@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 nav {
   width: 100%;
   margin: 30px auto;
@@ -17,11 +16,11 @@ nav {
     text-align: center;
   }
 
-  .menu>li {
+  .menu > li {
     display: inline-block;
   }
 
-  .menu>li>a {
+  .menu > li > a {
     display: block;
     padding: 15px 20px;
     color: #fff;
@@ -31,7 +30,7 @@ nav {
 
     &:hover {
       color: #e91616;
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 
@@ -58,6 +57,5 @@ nav {
   .menu li:hover .submenu {
     visibility: visible;
     opacity: 1;
-
   }
 }
