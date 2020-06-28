@@ -1,12 +1,12 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "api REST node - express - knex - jwt",
+  "description": "MEAN stack",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./setup/index.js"
   },
-  "author": "",
+  "author": "Roger, Byron, Jose and Johao",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.8",
